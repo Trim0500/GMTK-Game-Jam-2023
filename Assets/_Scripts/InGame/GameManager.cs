@@ -259,7 +259,7 @@ public class GameManager : MonoBehaviour
 
                 tierThresholdValue = 10000;
 
-                meterDrainRate = 3;
+                meterDrainRate = 2;
 
                 var tier3SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_3_Spawner")).ToList();
                 for (int i = 0; i < tier3SpawnerGroups.Count; i++)
@@ -274,8 +274,8 @@ public class GameManager : MonoBehaviour
                     var spawnerChildren = tier1And2SpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
                     for (int j = 0; j < spawnerChildren.Length; j++)
                     {
-                        spawnerChildren[j].spawnerTimer = 1.75f;
-                        spawnerChildren[j].maxSpawnCount = 9;
+                        spawnerChildren[j].spawnerTimer = 2.25f;
+                        spawnerChildren[j].maxSpawnCount = 4;
                         spawnerChildren[j].cooldownTimer = 4.0f;
                     }
                 }
@@ -284,18 +284,11 @@ public class GameManager : MonoBehaviour
             case 4:
                 UnityEngine.Debug.Log("Tier is now tier 4");
 
-                meterDrainRate = 5;
-
-                var tier4SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_4_Spawner")).ToList();
-                for (int i = 0; i < tier4SpawnerGroups.Count; i++)
-                {
-                    tier4SpawnerGroups[i].SetActive(true);
-                }
+                meterDrainRate = 4;
 
                 var tier1And2And3SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner")).ToList();
                 tier1And2And3SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner")).ToList());
-                tier1And2And3SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_3_Spawner")).ToList());
-                for (int i = 0; i < tier1And2And3SpawnerGroups.Count; i++)
+                for (int i = 0; i < spawnerGroups.Count; i++)
                 {
                     var spawnerChildren = tier1And2And3SpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
                     for (int j = 0; j < spawnerChildren.Length; j++)
