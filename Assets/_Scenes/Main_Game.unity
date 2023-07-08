@@ -815,13 +815,17 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 535924558}
+    - target: {fileID: 5119870882941278131, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: itemToCreate
+      value: 
+      objectReference: {fileID: 4946811441605145931, guid: f1e7f1a95082d29458530b18ba2cbb7d, type: 3}
     - target: {fileID: 6055893887721275697, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
       propertyPath: m_Name
       value: Dargonfruit_Spawners
       objectReference: {fileID: 0}
     - target: {fileID: 6055893887721275697, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6759379769845373057, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
       propertyPath: m_IsActive
@@ -891,6 +895,10 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 535924558}
+    - target: {fileID: 8480169795622535417, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: itemToCreate
+      value: 
+      objectReference: {fileID: 4946811441605145931, guid: d3c3b0b646a5a6f40a81087edafb4c2b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4594,7 +4602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 601351871233020519, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2730436425630774056, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4624,6 +4632,10 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 535924558}
+    - target: {fileID: 2814877801469286853, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: itemToCreate
+      value: 
+      objectReference: {fileID: 4946811441605145931, guid: b6ff3510bfd866b4ab04a08be82acac9, type: 3}
     - target: {fileID: 4892300803348870815, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: topLimit
       value: 
@@ -4644,6 +4656,10 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 535924558}
+    - target: {fileID: 4892300803348870815, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: itemToCreate
+      value: 
+      objectReference: {fileID: 4946811441605145931, guid: 30d7359682c2a76499121d8f7d2de7c5, type: 3}
     - target: {fileID: 5088121644984981900, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9

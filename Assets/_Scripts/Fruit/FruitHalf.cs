@@ -19,6 +19,10 @@ public class FruitHalf : MonoBehaviour
         AppleRight,
         OrangeLeft,
         OrangeRight,
+        CoconutLeft,
+        CoconutRight,
+        DragonfruitLeft,
+        DragonfruitRight,
     }
     public FruitType ThisFruitSeeks()
     {
@@ -28,6 +32,10 @@ public class FruitHalf : MonoBehaviour
             FruitType.AppleRight => FruitType.AppleLeft,
             FruitType.OrangeLeft => FruitType.OrangeRight,
             FruitType.OrangeRight => FruitType.OrangeLeft,
+            FruitType.CoconutLeft => FruitType.CoconutRight, 
+            FruitType.CoconutRight => FruitType.CoconutLeft, 
+            FruitType.DragonfruitLeft => FruitType.DragonfruitRight, 
+            FruitType.DragonfruitRight => FruitType.DragonfruitLeft, 
             FruitType.None => FruitType.None,
             _ => throw new ArgumentOutOfRangeException()
         };

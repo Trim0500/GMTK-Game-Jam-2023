@@ -58,7 +58,7 @@ public class FruitSpawner : MonoBehaviour
 
             var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Fruit_Object_Group");
 
-            Instantiate(itemToCreate, newPosition, this.gameObject.transform.rotation, objectToInstantiateIn.transform);
+            Instantiate(itemToCreate, newPosition, itemToCreate.transform.rotation, objectToInstantiateIn.transform);
 
             ++spawnCount;
         }
