@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrangeFull
       objectReference: {fileID: 0}
+    - target: {fileID: 5004627364534072231, guid: 32ee4531e7e643848b494c0757535aa1, type: 3}
+      propertyPath: pointValue
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004627364534072231, guid: 32ee4531e7e643848b494c0757535aa1, type: 3}
+      propertyPath: recoveryValue
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7985587325205996373, guid: 32ee4531e7e643848b494c0757535aa1, type: 3}
       propertyPath: m_Sprite
       value: 

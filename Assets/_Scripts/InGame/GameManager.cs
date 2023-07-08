@@ -157,18 +157,26 @@ public class GameManager : MonoBehaviour
 
     private void UpdateScoreText()
     {
+        UnityEngine.Debug.Log("Updating score view...");
+
         scoreText.text = "Score: " + score;
     }
 
     public void AddScore(int scoreValue)
     {
+        UnityEngine.Debug.Log("Score was: " + score);
+
         score += scoreValue;
+        
+        UnityEngine.Debug.Log("Score is now: " + score);
 
         UpdateScoreText();
 
         var thresholdCrossed = score - tierThresholdValue > 0;
         if (thresholdCrossed && score < 50000)
         {
+            UnityEngine.Debug.Log("Score was: " + score + " and therefore crossed a threshold");
+
             DetermineTier();
         }
     }
@@ -180,19 +188,23 @@ public class GameManager : MonoBehaviour
 
     public void DetermineTier()
     {
-        switch(++currentTier)
+        UnityEngine.Debug.Log("Determining new tier, it is currently: " + currentTier);
+
+        switch (++currentTier)
         {
             case 2:
-                tierThresholdValue = 25000;
+                UnityEngine.Debug.Log("Tier is now tier 2");
 
-                var tier2SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_2_Spawner");
-                for (int i = 0; i < tier2SpawnerGroups.Length; i++)
+                tierThresholdValue = 10000;
+
+                var tier2SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner")).ToList();
+                for (int i = 0; i < tier2SpawnerGroups.Count; i++)
                 {
                     tier2SpawnerGroups[i].SetActive(true);
                 }
 
-                var otherSpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_1_Spawner");
-                for (int i = 0; i < otherSpawnerGroups.Length; i++)
+                var otherSpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner")).ToList();
+                for (int i = 0; i < otherSpawnerGroups.Count; i++)
                 {
                     var spawnerChildren = otherSpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
                     for (int j = 0; j < spawnerChildren.Length; j++)
@@ -205,18 +217,20 @@ public class GameManager : MonoBehaviour
 
                 break;
             case 3:
-                tierThresholdValue = 50000;
+                UnityEngine.Debug.Log("Tier is now tier 3");
+
+                tierThresholdValue = 30000;
 
                 meterDrainRate = 3;
 
-                var tier3SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_2_Spawner");
-                for (int i = 0; i < tier3SpawnerGroups.Length; i++)
+                var tier3SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_3_Spawner")).ToList();
+                for (int i = 0; i < tier3SpawnerGroups.Count; i++)
                 {
                     tier3SpawnerGroups[i].SetActive(true);
                 }
 
-                var tier1And2SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_1_Spawner").ToList();
-                tier1And2SpawnerGroups.AddRange(GameObject.FindGameObjectsWithTag("Tier_2_Spawner"));
+                var tier1And2SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner")).ToList();
+                tier1And2SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner")).ToList());
                 for (int i = 0; i < tier1And2SpawnerGroups.Count; i++)
                 {
                     var spawnerChildren = tier1And2SpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
@@ -230,17 +244,19 @@ public class GameManager : MonoBehaviour
 
                 break;
             case 4:
+                UnityEngine.Debug.Log("Tier is now tier 4");
+
                 meterDrainRate = 5;
 
-                var tier4SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_2_Spawner");
-                for (int i = 0; i < tier4SpawnerGroups.Length; i++)
+                var tier4SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_4_Spawner")).ToList();
+                for (int i = 0; i < tier4SpawnerGroups.Count; i++)
                 {
                     tier4SpawnerGroups[i].SetActive(true);
                 }
 
-                var tier1And2And3SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_1_Spawner").ToList();
-                tier1And2And3SpawnerGroups.AddRange(GameObject.FindGameObjectsWithTag("Tier_2_Spawner"));
-                tier1And2And3SpawnerGroups.AddRange(GameObject.FindGameObjectsWithTag("Tier_3_Spawner"));
+                var tier1And2And3SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner")).ToList();
+                tier1And2And3SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner")).ToList());
+                tier1And2And3SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_3_Spawner")).ToList());
                 for (int i = 0; i < tier1And2And3SpawnerGroups.Count; i++)
                 {
                     var spawnerChildren = tier1And2And3SpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
@@ -281,32 +297,46 @@ public class GameManager : MonoBehaviour
     {
         if (remainingMeter > 75 && remainingMeter <= 100)
         {
+            UnityEngine.Debug.Log("Meter is green now");
+
             meterView.sprite = meterSprites[0];
         }
         else if(remainingMeter > 50 && remainingMeter <= 75)
         {
+            UnityEngine.Debug.Log("Meter is yellow now");
+
             meterView.sprite = meterSprites[1];
         }
         else if(remainingMeter > 25 && remainingMeter <= 50)
         {
+            UnityEngine.Debug.Log("Meter is orange now");
+
             meterView.sprite = meterSprites[2];
         }
         else if(remainingMeter > 0 && remainingMeter <= 25)
         {
+            UnityEngine.Debug.Log("Meter is red now");
+
             meterView.sprite = meterSprites[3];
         }
     }
 
     public void RecoverMeter(int recoverValue)
     {
+        UnityEngine.Debug.Log("Recovery amount for meter is: " + recoverValue);
+
         var newMeterValue = remainingMeter + recoverValue;
         if (newMeterValue > MAX_METER)
         {
+            UnityEngine.Debug.Log("Meter value has exceeded the max, setting to 100");
+
             remainingMeter = MAX_METER;
         }
         else
         {
             remainingMeter = newMeterValue;
+
+            UnityEngine.Debug.Log("New meter value is now: " + remainingMeter);
         }
 
         UpdateMeterView();

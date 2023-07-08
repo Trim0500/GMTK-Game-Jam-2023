@@ -8,6 +8,7 @@ TagManager:
   - Tier_2_Spawner
   - Tier_3_Spawner
   - Tier_4_Spawner
+  - Fruit_Object_Group
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class FullFruit : MonoBehaviour
 {
+    public int pointValue = 100;
+    public int recoveryValue = 5;
+    
+    private GameManager gameManager;
     private Collider2D _collider2D;
     private Rigidbody2D _rigidbody2D;
     private Transform _transform;
@@ -12,6 +16,11 @@ public class FullFruit : MonoBehaviour
     private readonly int _conveyorLayer = 6; //layer index of conveyor
 
     private Boolean isOnConveyor = false;
+
+    private void Awake()
+    {
+        gameManager = GameManager.instance;
+    }
 
     void Start()
     {
@@ -37,7 +46,10 @@ public class FullFruit : MonoBehaviour
         if (FruitLifter.instance.liftedBody == _rigidbody2D)
             FruitLifter.instance.liftedBody = null;
 
-        // TODO: SCORING LOGIC HERE?
+        Debug.Log("Applying score and recovery value of: " + pointValue + " and " + recoveryValue);
+
+        gameManager.AddScore(pointValue);
+        gameManager.RecoverMeter(recoveryValue);
 
         isOnConveyor = true;
         
