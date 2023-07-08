@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class FruitHalf : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Rigidbody2D rb2d;
+
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
 }
