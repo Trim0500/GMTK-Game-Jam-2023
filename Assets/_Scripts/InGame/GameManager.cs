@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
 
     public bool CheckForMaxPieces()
     {
-        return currentPieces >= maxPieces;
+        return currentPieces < maxPieces;
     }
 
     //TODO
