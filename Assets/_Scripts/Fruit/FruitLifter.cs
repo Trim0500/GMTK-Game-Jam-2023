@@ -12,6 +12,8 @@ public class FruitLifter : MonoBehaviour
 
     private Vector3 _offset;
     private Vector3 _mousePosition;
+    private Vector3 _lastPosition;
+    private Vector2 _throwingForce;
 
     private float _lockoutTimer;
 
@@ -33,6 +35,13 @@ public class FruitLifter : MonoBehaviour
             _inputManager.verticalLookAxis)
         );
 
+        //Throwing physics
+        if (liftedBody)
+        {
+            _throwingForce = (_mousePosition - _lastPosition) / Time.deltaTime;
+            _lastPosition = _mousePosition;
+        }
+        
         // holding with no fruit & not locked out 
         if (_inputManager.selectHeld && !liftedBody && _lockoutTimer < lockoutTime)
         {
@@ -62,7 +71,12 @@ public class FruitLifter : MonoBehaviour
             //TODO: possibly optimize
             if (liftedFruit != null)
                 liftedFruit.isLifted = false;
-
+            if (liftedBody != null)
+            {
+                liftedBody.velocity = Vector2.zero;
+                liftedBody.AddForce(_throwingForce, ForceMode2D.Impulse);
+            }
+            
             liftedBody = null;
             liftedFruit = null;
         }
