@@ -6,8 +6,9 @@ public class FruitHalf : MonoBehaviour
 {
     [SerializeField] private FruitType thisFruit;
 
+    [SerializeField] private CircleCollider2D _collider2D;
     private Rigidbody2D _rb2d;
-    private CircleCollider2D _collider2D;
+    
     public bool isLifted;
 
     public enum FruitType
@@ -36,7 +37,7 @@ public class FruitHalf : MonoBehaviour
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
-        _collider2D = GetComponent<CircleCollider2D>();
+        // _collider2D = GetComponentInChildren<CircleCollider2D>();
         
         _rb2d.velocity = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
     }
@@ -45,11 +46,11 @@ public class FruitHalf : MonoBehaviour
     {
         if (!isLifted && thisFruit == seekingType)
         {
-            _collider2D.isTrigger = true;
+            _collider2D.enabled = true;
         }
         else
         {
-            _collider2D.isTrigger = false;
+            _collider2D.enabled = false;
         }
     }
 
@@ -58,7 +59,7 @@ public class FruitHalf : MonoBehaviour
         //Make sure it's the one being held
         if (!isLifted) return;
         
-        Destroy(other.gameObject);
+        Destroy(other.gameObject.transform.parent.gameObject);
         
         Debug.Log("I'm full now!");
     }
