@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7132870347517539946}
   - component: {fileID: 3003546664026500253}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 7216218167769284827}
   - component: {fileID: 4246566084676214782}
   - component: {fileID: 7605450378003979232}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,5 +230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisFruit: 0
+  fullFruit: {fileID: 0}
   _collider2D: {fileID: 3003546664026500253}
   isLifted: 0

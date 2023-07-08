@@ -16,9 +16,12 @@ public class FruitLifter : MonoBehaviour
     private float _lockoutTimer;
 
     public static FruitLifter instance;
+    LayerMask _mask;
     
     private void Start()
     {
+        _mask = ~LayerMask.GetMask("IgnoreHalfFruit");
+        
         _inputManager = InputManager.instance;
         instance = this;
     }
@@ -35,7 +38,7 @@ public class FruitLifter : MonoBehaviour
         {
             _lockoutTimer += Time.deltaTime;
 
-            Collider2D targetObject = Physics2D.OverlapPoint(_mousePosition);
+            Collider2D targetObject = Physics2D.OverlapPoint(_mousePosition, _mask);
             if (!targetObject) return;
 
             liftedBody = targetObject.transform.gameObject.GetComponent<Rigidbody2D>();
