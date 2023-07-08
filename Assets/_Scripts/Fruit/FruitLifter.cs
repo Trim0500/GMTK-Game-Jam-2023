@@ -35,18 +35,23 @@ public class FruitLifter : MonoBehaviour
             if (!targetObject) return;
 
             liftedBody = targetObject.transform.gameObject.GetComponent<Rigidbody2D>();
-            
+
             liftedFruit = targetObject.transform.gameObject.GetComponent<FruitHalf>();
+            liftedFruit.isLifted = true;
             FruitHalf.seekingType = liftedFruit.ThisFruitSeeks();
-            
+
             _offset = liftedBody.transform.position - _mousePosition;
         }
         else if (!_inputManager.selectHeld)
         {
             _lockoutTimer = 0.0f;
-            
+
             FruitHalf.seekingType = FruitHalf.FruitType.None;
-            
+
+            //TODO: possibly optimize
+            if (liftedFruit != null)
+                liftedFruit.isLifted = false;
+
             liftedBody = null;
             liftedFruit = null;
         }

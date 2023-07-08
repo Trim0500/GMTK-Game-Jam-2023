@@ -8,7 +8,8 @@ public class FruitHalf : MonoBehaviour
 
     private Rigidbody2D _rb2d;
     private CircleCollider2D _collider2D;
-    
+    public bool isLifted;
+
     public enum FruitType
     {
         None,
@@ -31,7 +32,7 @@ public class FruitHalf : MonoBehaviour
     }
 
     public static FruitType seekingType = FruitType.None;
-    
+
     void Start()
     {
         _rb2d = GetComponent<Rigidbody2D>();
@@ -42,14 +43,21 @@ public class FruitHalf : MonoBehaviour
 
     private void Update()
     {
-        if (thisFruit == seekingType)
+        if (!isLifted && thisFruit == seekingType)
         {
             _collider2D.isTrigger = true;
+        }
+        else
+        {
+            _collider2D.isTrigger = false;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //Make sure it's the one being held
+        if (!isLifted) return;
+        
         Destroy(other.gameObject);
         
         Debug.Log("I'm full now!");
