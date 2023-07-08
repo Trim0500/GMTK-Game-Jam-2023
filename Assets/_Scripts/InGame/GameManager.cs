@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
     public GameObject pauseDefaultSelected;
     public GameObject gameOverScreen;
     public GameObject gameOverDefaultSelected;
+    public Image meterView;
+    public List<Sprite> meterSprites;
 
     private void Pause()
     {
@@ -84,6 +87,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartButtonOnClick()
     {
+        gameOver = false;
+
         paused = false;
 
         Time.timeScale = 1.0f;
@@ -162,30 +167,59 @@ public class GameManager : MonoBehaviour
         // Need to determine score threshold arithmetic
     }
 
+    private void SetInitialMeterView()
+    {
+        meterView.sprite = meterSprites[1];
+    }
+
     private void DrainMeter()
     {
-        var modSeconds = secondsElapsed % 1;
-        if(modSeconds == 0)
+        var currentMeterValue = remainingMeter;
+        var thresholdStatus = currentMeterValue % 25;
+
+        --remainingMeter;
+
+        var newThresholdStatus = remainingMeter % 25;
+        if(thresholdStatus != 0 && newThresholdStatus == 0)
         {
-            --remainingMeter;
+            UpdateMeterView();
         }
 
         if(remainingMeter <= 0)
         {
             gameOver = true;
+
+            DisplayGameOver();
         }
     }
 
-    //TODO
     private void UpdateMeterView()
     {
-        // Need to figure out what the meter sprite will be
+        if (remainingMeter > 75 && remainingMeter <= 100)
+        {
+            meterView.sprite = meterSprites[0];
+        }
+        else if(remainingMeter > 50 && remainingMeter <= 75)
+        {
+            meterView.sprite = meterSprites[1];
+        }
+        else if(remainingMeter > 25 && remainingMeter <= 50)
+        {
+            meterView.sprite = meterSprites[2];
+        }
+        else if(remainingMeter > 0 && remainingMeter <= 25)
+        {
+            meterView.sprite = meterSprites[3];
+        }
     }
 
     public void RecoverMeter(int recoverValue)
     {
+        var currentMeterValue = remainingMeter;
+        var thresholdStatus = currentMeterValue % 25;
+
         var newMeterValue = remainingMeter + recoverValue;
-        if(newMeterValue > MAX_METER)
+        if (newMeterValue > MAX_METER)
         {
             remainingMeter = MAX_METER;
         }
@@ -193,19 +227,27 @@ public class GameManager : MonoBehaviour
         {
             remainingMeter = newMeterValue;
         }
+
+        var newThresholdStatus = remainingMeter % 25;
+        if (thresholdStatus != 0 && newThresholdStatus == 0)
+        {
+            UpdateMeterView();
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         SetInitalScoreView();
+
+        SetInitialMeterView();
+
+        InvokeRepeating("DrainMeter", 0.0f, 1.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        DrainMeter();
-
         UpdateElapsedTime();
         
         CheckPause();
