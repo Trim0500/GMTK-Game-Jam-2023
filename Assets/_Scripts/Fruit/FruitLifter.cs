@@ -1,50 +1,68 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class FruitLifter : MonoBehaviour
 {
+    [SerializeField] private float lockoutTime = 0.50f;
     [SerializeField] private Camera mainCamera;
-    private InputManager inputManager;
-    
-    public Rigidbody2D selectedObject;
-    Vector3 _offset;
-    Vector3 _mousePosition;
+    private InputManager _inputManager;
+
+    public Rigidbody2D liftedBody;
+    public FruitHalf liftedFruit;
+
+    private Vector3 _offset;
+    private Vector3 _mousePosition;
+
+    private float _lockoutTimer;
 
     private void Start()
     {
-        inputManager = InputManager.instance;
+        _inputManager = InputManager.instance;
     }
 
     void Update()
     {
-        _mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(inputManager.horizontalLookAxis, inputManager.verticalLookAxis));
-        
-        Debug.Log(_mousePosition);
-        
-        if (inputManager.selectHeld)
-        {
-            Collider2D targetObject = Physics2D.OverlapPoint(_mousePosition);
-            if (targetObject)
-            {
-                selectedObject = targetObject.transform.gameObject.GetComponent<Rigidbody2D>();
-                _offset = selectedObject.transform.position - _mousePosition;
-            }
-        }
+        _mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(
+            _inputManager.horizontalLookAxis,
+            _inputManager.verticalLookAxis)
+        );
 
-        if (!inputManager.selectHeld && selectedObject)
+        // holding with no fruit & not locked out 
+        if (_inputManager.selectHeld && !liftedBody && _lockoutTimer < lockoutTime)
         {
-            selectedObject = null;
+            _lockoutTimer += Time.deltaTime;
+
+            Collider2D targetObject = Physics2D.OverlapPoint(_mousePosition);
+            if (!targetObject) return;
+
+            liftedBody = targetObject.transform.gameObject.GetComponent<Rigidbody2D>();
+            
+            liftedFruit = targetObject.transform.gameObject.GetComponent<FruitHalf>();
+            FruitHalf.seekingType = liftedFruit.ThisFruitSeeks();
+            
+            _offset = liftedBody.transform.position - _mousePosition;
+        }
+        else if (!_inputManager.selectHeld)
+        {
+            _lockoutTimer = 0.0f;
+            
+            FruitHalf.seekingType = FruitHalf.FruitType.None;
+            
+            liftedBody = null;
+            liftedFruit = null;
         }
     }
 
     void FixedUpdate()
     {
-        if (selectedObject)
+        if (liftedBody)
         {
-            selectedObject.MovePosition(_mousePosition + _offset);
+            var nextPos = _mousePosition + _offset;
+
+            //Cancel next move if it leaves screen
+            if (Mathf.Abs(nextPos.x) > 10 || Mathf.Abs(nextPos.y) > 5.5f)
+                return;
+
+            liftedBody.MovePosition(nextPos);
         }
     }
 }
