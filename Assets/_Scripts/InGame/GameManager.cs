@@ -209,6 +209,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void IncreasesCurrentItemCount()
+    {
+        ++currentPieces;
+    }
+
+    public void DecreaseCurrentItemCount(int countValue)
+    {
+        currentPieces -= countValue;
+    }
+
     public bool CheckForMaxPieces()
     {
         return currentPieces < maxPieces;
@@ -223,7 +233,7 @@ public class GameManager : MonoBehaviour
             case 2:
                 UnityEngine.Debug.Log("Tier is now tier 2");
 
-                tierThresholdValue = 10000;
+                tierThresholdValue = 5000;
 
                 var tier2SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner")).ToList();
                 for (int i = 0; i < tier2SpawnerGroups.Count; i++)
@@ -237,8 +247,8 @@ public class GameManager : MonoBehaviour
                     var spawnerChildren = otherSpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
                     for (int j = 0; j < spawnerChildren.Length; j++)
                     {
-                        spawnerChildren[j].spawnerTimer = 2.5f;
-                        spawnerChildren[j].maxSpawnCount = 6;
+                        spawnerChildren[j].spawnerTimer = 3.0f;
+                        spawnerChildren[j].maxSpawnCount = 4;
                         spawnerChildren[j].cooldownTimer = 5.0f;
                     }
                 }
@@ -247,7 +257,7 @@ public class GameManager : MonoBehaviour
             case 3:
                 UnityEngine.Debug.Log("Tier is now tier 3");
 
-                tierThresholdValue = 30000;
+                tierThresholdValue = 10000;
 
                 meterDrainRate = 3;
 

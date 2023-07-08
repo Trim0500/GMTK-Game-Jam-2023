@@ -12,6 +12,7 @@ public class Bomb : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody2d;
     private CircleCollider2D _circleCollider;
+    private GameManager _gameManager;
 
     private float _timer;
     private bool _exploding;
@@ -21,6 +22,7 @@ public class Bomb : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidbody2d = GetComponent<Rigidbody2D>();
         _circleCollider = GetComponent<CircleCollider2D>();
+        _gameManager = GameManager.instance;
     }
 
     void Update()
@@ -61,5 +63,7 @@ public class Bomb : MonoBehaviour
         
         yield return new WaitForSeconds(1.7f);
         Destroy(gameObject);
+
+        _gameManager.DecreaseCurrentItemCount(1);
     }
 }

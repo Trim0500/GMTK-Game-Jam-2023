@@ -36,6 +36,8 @@ public class FullFruit : MonoBehaviour
         if (transform.position.y > 10)
         {
             Destroy(gameObject); //TODO POOLING?
+
+            gameManager.DecreaseCurrentItemCount(2);
         }
     }
 

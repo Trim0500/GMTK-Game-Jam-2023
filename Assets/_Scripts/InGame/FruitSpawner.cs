@@ -31,7 +31,11 @@ public class FruitSpawner : MonoBehaviour
     
     public void SpawnItems()
     {
+        Debug.Log("Checking if there are too many objects");
+
         var canSpawn = _gameManager.CheckForMaxPieces();
+
+        Debug.Log("Value of canSPawn is: " + canSpawn);
         if(!cooldown && canSpawn && spawnCount < maxSpawnCount)
         {
             var randInt = Random.Range(0.0f, 5.0f);
@@ -61,6 +65,8 @@ public class FruitSpawner : MonoBehaviour
             Instantiate(itemToCreate, newPosition, itemToCreate.transform.rotation, objectToInstantiateIn.transform);
 
             ++spawnCount;
+
+            _gameManager.IncreasesCurrentItemCount();
         }
         else if(!cooldown && spawnCount == maxSpawnCount)
         {

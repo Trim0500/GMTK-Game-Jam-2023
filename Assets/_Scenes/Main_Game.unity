@@ -819,13 +819,25 @@ PrefabInstance:
       propertyPath: itemToCreate
       value: 
       objectReference: {fileID: 4946811441605145931, guid: f1e7f1a95082d29458530b18ba2cbb7d, type: 3}
+    - target: {fileID: 5119870882941278131, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: spawnerTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119870882941278131, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: cooldownTimer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119870882941278131, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: maxSpawnCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6055893887721275697, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
       propertyPath: m_Name
       value: Dargonfruit_Spawners
       objectReference: {fileID: 0}
     - target: {fileID: 6055893887721275697, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6759379769845373057, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
       propertyPath: m_IsActive
@@ -899,6 +911,18 @@ PrefabInstance:
       propertyPath: itemToCreate
       value: 
       objectReference: {fileID: 4946811441605145931, guid: d3c3b0b646a5a6f40a81087edafb4c2b, type: 3}
+    - target: {fileID: 8480169795622535417, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: spawnerTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480169795622535417, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: cooldownTimer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480169795622535417, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: maxSpawnCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4072,6 +4096,14 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 535924558}
+    - target: {fileID: 3328178508487907597, guid: a429d746900a47740bd2919512c37df3, type: 3}
+      propertyPath: spawnerTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328178508487907597, guid: a429d746900a47740bd2919512c37df3, type: 3}
+      propertyPath: maxSpawnCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3907310370870285920, guid: a429d746900a47740bd2919512c37df3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -4140,6 +4172,14 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 535924558}
+    - target: {fileID: 6122031398449182037, guid: a429d746900a47740bd2919512c37df3, type: 3}
+      propertyPath: spawnerTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122031398449182037, guid: a429d746900a47740bd2919512c37df3, type: 3}
+      propertyPath: maxSpawnCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6811451637981548013, guid: a429d746900a47740bd2919512c37df3, type: 3}
       propertyPath: m_Name
       value: Apple_Spawners
@@ -4221,6 +4261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AppleRight Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4946811441605145931, guid: e43139b87c419a146b2e8c1cd6ec4ce5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4282,6 +4326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrangeLeft Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4946811441605145931, guid: 48568174a5d75894ebb39b2cc544c6b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4323,6 +4371,14 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 535924558}
+    - target: {fileID: 1380503021780523391, guid: f61174c12ced2f146874fcc4cf8d305b, type: 3}
+      propertyPath: spawnerTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380503021780523391, guid: f61174c12ced2f146874fcc4cf8d305b, type: 3}
+      propertyPath: maxSpawnCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1942465194294745910, guid: f61174c12ced2f146874fcc4cf8d305b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -4399,6 +4455,14 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 535924558}
+    - target: {fileID: 7506101303928180509, guid: f61174c12ced2f146874fcc4cf8d305b, type: 3}
+      propertyPath: spawnerTimer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7506101303928180509, guid: f61174c12ced2f146874fcc4cf8d305b, type: 3}
+      propertyPath: maxSpawnCount
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4578,6 +4642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrangeRight Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4946811441605145931, guid: c725a7d4f115bd044acf763451858fd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4602,7 +4670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 601351871233020519, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2730436425630774056, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4636,6 +4704,18 @@ PrefabInstance:
       propertyPath: itemToCreate
       value: 
       objectReference: {fileID: 4946811441605145931, guid: b6ff3510bfd866b4ab04a08be82acac9, type: 3}
+    - target: {fileID: 2814877801469286853, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: spawnerTimer
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814877801469286853, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: cooldownTimer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814877801469286853, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: maxSpawnCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4892300803348870815, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: topLimit
       value: 
@@ -4660,6 +4740,18 @@ PrefabInstance:
       propertyPath: itemToCreate
       value: 
       objectReference: {fileID: 4946811441605145931, guid: 30d7359682c2a76499121d8f7d2de7c5, type: 3}
+    - target: {fileID: 4892300803348870815, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: spawnerTimer
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892300803348870815, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: cooldownTimer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892300803348870815, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: maxSpawnCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5088121644984981900, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9
@@ -4871,7 +4963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
       propertyPath: maxPieces
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
       propertyPath: meterView
@@ -4883,7 +4975,7 @@ PrefabInstance:
       objectReference: {fileID: 1381313331}
     - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
       propertyPath: tierThresholdValue
-      value: 5000
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
       propertyPath: meterSprites.Array.size
@@ -4997,6 +5089,10 @@ PrefabInstance:
     - target: {fileID: 4946811441605145931, guid: bbc2b4f7371fbbd43ac3dc0e3e63e301, type: 3}
       propertyPath: m_Name
       value: AppleLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 4946811441605145931, guid: bbc2b4f7371fbbd43ac3dc0e3e63e301, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5119,6 +5215,10 @@ PrefabInstance:
     - target: {fileID: 2699751177440955136, guid: 0078b8b60537e9240a3fc5f7f3acb61b, type: 3}
       propertyPath: m_Name
       value: Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699751177440955136, guid: 0078b8b60537e9240a3fc5f7f3acb61b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
