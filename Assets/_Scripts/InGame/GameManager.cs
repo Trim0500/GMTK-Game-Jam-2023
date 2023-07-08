@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,13 +18,21 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private float secondsElapsed;
     private int minutesCounter;
+    [SerializeField]
     private int remainingMeter = 60;
+    [SerializeField]
+    private int meterDrainRate = 1;
     private int MAX_METER = 100;
     private int currentPieces = 0;
-    private int maxPieces = 10;
+    [SerializeField]
+    private int maxPieces = 50;
+    [SerializeField]
+    private int tierThresholdValue = 10000;
+    private int currentTier = 1;
 
     public InputManager _inputManager;
     public EventSystem eventSystem;
+    public List<GameObject> spawnerGroups;
 
     public TMP_Text currentTimeText;
     public TMP_Text scoreText;
@@ -156,6 +165,12 @@ public class GameManager : MonoBehaviour
         score += scoreValue;
 
         UpdateScoreText();
+
+        var thresholdCrossed = score - tierThresholdValue > 0;
+        if (thresholdCrossed && score < 50000)
+        {
+            DetermineTier();
+        }
     }
 
     public bool CheckForMaxPieces()
@@ -163,10 +178,84 @@ public class GameManager : MonoBehaviour
         return currentPieces < maxPieces;
     }
 
-    //TODO
-    public void IncreaseMaxPieces()
+    public void DetermineTier()
     {
-        // Need to determine score threshold arithmetic
+        switch(++currentTier)
+        {
+            case 2:
+                tierThresholdValue = 25000;
+
+                var tier2SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_2_Spawner");
+                for (int i = 0; i < tier2SpawnerGroups.Length; i++)
+                {
+                    tier2SpawnerGroups[i].SetActive(true);
+                }
+
+                var otherSpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_1_Spawner");
+                for (int i = 0; i < otherSpawnerGroups.Length; i++)
+                {
+                    var spawnerChildren = otherSpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
+                    for (int j = 0; j < spawnerChildren.Length; j++)
+                    {
+                        spawnerChildren[j].spawnerTimer = 2.5f;
+                        spawnerChildren[j].maxSpawnCount = 6;
+                        spawnerChildren[j].cooldownTimer = 5.0f;
+                    }
+                }
+
+                break;
+            case 3:
+                tierThresholdValue = 50000;
+
+                meterDrainRate = 3;
+
+                var tier3SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_2_Spawner");
+                for (int i = 0; i < tier3SpawnerGroups.Length; i++)
+                {
+                    tier3SpawnerGroups[i].SetActive(true);
+                }
+
+                var tier1And2SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_1_Spawner").ToList();
+                tier1And2SpawnerGroups.AddRange(GameObject.FindGameObjectsWithTag("Tier_2_Spawner"));
+                for (int i = 0; i < tier1And2SpawnerGroups.Count; i++)
+                {
+                    var spawnerChildren = tier1And2SpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
+                    for (int j = 0; j < spawnerChildren.Length; j++)
+                    {
+                        spawnerChildren[j].spawnerTimer = 1.75f;
+                        spawnerChildren[j].maxSpawnCount = 9;
+                        spawnerChildren[j].cooldownTimer = 4.0f;
+                    }
+                }
+
+                break;
+            case 4:
+                meterDrainRate = 5;
+
+                var tier4SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_2_Spawner");
+                for (int i = 0; i < tier4SpawnerGroups.Length; i++)
+                {
+                    tier4SpawnerGroups[i].SetActive(true);
+                }
+
+                var tier1And2And3SpawnerGroups = GameObject.FindGameObjectsWithTag("Tier_1_Spawner").ToList();
+                tier1And2And3SpawnerGroups.AddRange(GameObject.FindGameObjectsWithTag("Tier_2_Spawner"));
+                tier1And2And3SpawnerGroups.AddRange(GameObject.FindGameObjectsWithTag("Tier_3_Spawner"));
+                for (int i = 0; i < tier1And2And3SpawnerGroups.Count; i++)
+                {
+                    var spawnerChildren = tier1And2And3SpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
+                    for (int j = 0; j < spawnerChildren.Length; j++)
+                    {
+                        spawnerChildren[j].spawnerTimer = 1.75f;
+                        spawnerChildren[j].maxSpawnCount = 9;
+                        spawnerChildren[j].cooldownTimer = 4.0f;
+                    }
+                }
+
+                break;
+            default:
+                break;
+        }
     }
 
     private void SetInitialMeterView()
@@ -176,16 +265,9 @@ public class GameManager : MonoBehaviour
 
     private void DrainMeter()
     {
-        var currentMeterValue = remainingMeter;
-        var thresholdStatus = currentMeterValue % 25;
+        remainingMeter -= meterDrainRate;
 
-        --remainingMeter;
-
-        var newThresholdStatus = remainingMeter % 25;
-        if(thresholdStatus != 0 && newThresholdStatus == 0)
-        {
-            UpdateMeterView();
-        }
+        UpdateMeterView();
 
         if(remainingMeter <= 0)
         {
@@ -217,9 +299,6 @@ public class GameManager : MonoBehaviour
 
     public void RecoverMeter(int recoverValue)
     {
-        var currentMeterValue = remainingMeter;
-        var thresholdStatus = currentMeterValue % 25;
-
         var newMeterValue = remainingMeter + recoverValue;
         if (newMeterValue > MAX_METER)
         {
@@ -230,11 +309,7 @@ public class GameManager : MonoBehaviour
             remainingMeter = newMeterValue;
         }
 
-        var newThresholdStatus = remainingMeter % 25;
-        if (thresholdStatus != 0 && newThresholdStatus == 0)
-        {
-            UpdateMeterView();
-        }
+        UpdateMeterView();
     }
 
     // A global instance for scripts to reference
