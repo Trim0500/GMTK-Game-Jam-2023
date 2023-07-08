@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text currentTimeText;
     public TMP_Text scoreText;
+    public GameObject contextScreen;
+    public GameObject scoreObject;
+    public GameObject meterObject;
+    public GameObject timeObject;
     public GameObject pauseScreen;
     public GameObject pauseDefaultSelected;
     public GameObject gameOverScreen;
@@ -83,6 +87,30 @@ public class GameManager : MonoBehaviour
         gameOverScreen.SetActive(true);
 
         eventSystem.SetSelectedGameObject(gameOverDefaultSelected);
+    }
+
+    void BeginGame()
+    {
+        SetInitalScoreView();
+
+        SetInitialMeterView();
+
+        InvokeRepeating("DrainMeter", 0.0f, 1.0f);
+    }
+
+    public void BeginButtonOnClick()
+    {
+        contextScreen.SetActive(false);
+
+        scoreObject.SetActive(true);
+
+        meterObject.SetActive(true);
+
+        timeObject.SetActive(true);
+
+        Time.timeScale = 1.0f;
+
+        BeginGame();
     }
 
     public void ResumeButtonOnClick()
@@ -369,11 +397,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetInitalScoreView();
-
-        SetInitialMeterView();
-
-        InvokeRepeating("DrainMeter", 0.0f, 1.0f);
+        Time.timeScale = 0.0f;
     }
 
     // Update is called once per frame
