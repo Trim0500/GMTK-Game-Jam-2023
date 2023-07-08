@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +7,24 @@ using UnityEngine.Serialization;
 public class FruitLifter : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
+    private InputManager inputManager;
     
     public Rigidbody2D selectedObject;
     Vector3 _offset;
     Vector3 _mousePosition;
 
+    private void Start()
+    {
+        inputManager = InputManager.instance;
+    }
+
     void Update()
     {
-        _mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        _mousePosition = mainCamera.ScreenToWorldPoint(new Vector3(inputManager.horizontalLookAxis, inputManager.verticalLookAxis));
         
-        if (Input.GetMouseButtonDown(0))
+        Debug.Log(_mousePosition);
+        
+        if (inputManager.selectHeld)
         {
             Collider2D targetObject = Physics2D.OverlapPoint(_mousePosition);
             if (targetObject)
@@ -25,7 +34,7 @@ public class FruitLifter : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && selectedObject)
+        if (!inputManager.selectHeld && selectedObject)
         {
             selectedObject = null;
         }
