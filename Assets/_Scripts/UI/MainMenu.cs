@@ -94,6 +94,8 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void CreateClickEffect()
     {
+        Debug.Log("Creating effect...");
+
         if (clickEffect)
         {
             Instantiate(clickEffect, transform.position, Quaternion.identity, null);
@@ -110,6 +112,8 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void CreateNavigationEffect()
     {
+        Debug.Log("Creating effect...");
+
         if (navigationEffect)
         {
             Instantiate(navigationEffect, transform.position, Quaternion.identity, null);
