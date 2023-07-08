@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CheckPause()
+    private void CheckPause()
     {
         var pauseButtonValue = _inputManager.pauseButton;
         if(pauseButtonValue == 1.0f)
@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DisplayGameOver()
+    private void DisplayGameOver()
     {
         Time.timeScale = 0f;
 
@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: 0";
     }
 
-    public void UpdateScoreText()
+    private void UpdateScoreText()
     {
         scoreText.text = "Score: " + score;
     }
@@ -154,6 +154,8 @@ public class GameManager : MonoBehaviour
     public void AddScore(int scoreValue)
     {
         score += scoreValue;
+
+        UpdateScoreText();
     }
 
     public bool CheckForMaxPieces()
@@ -232,6 +234,30 @@ public class GameManager : MonoBehaviour
         if (thresholdStatus != 0 && newThresholdStatus == 0)
         {
             UpdateMeterView();
+        }
+    }
+
+    // A global instance for scripts to reference
+    public static GameManager instance;
+
+    /// <summary>
+    /// Description:
+    /// Standard Unity Function called when the script is loaded
+    /// Input:
+    /// none
+    /// Return:
+    /// void (no return)
+    /// </summary>
+    private void Awake()
+    {
+        // Set up the instance of this
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
     }
 
