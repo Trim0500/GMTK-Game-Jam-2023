@@ -10,11 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4467861403040197591, guid: e3ef0a18f3b8f634699fc69105442e32, type: 3}
       propertyPath: m_Name
-      value: AppleLeft Variant
+      value: AppleRight Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7605450378003979232, guid: e3ef0a18f3b8f634699fc69105442e32, type: 3}
+      propertyPath: fullFruit
+      value: 
+      objectReference: {fileID: 886464574684992016, guid: 416529315ce7e4f4ea2711acd349eb0f, type: 3}
+    - target: {fileID: 7605450378003979232, guid: e3ef0a18f3b8f634699fc69105442e32, type: 3}
       propertyPath: thisFruit
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7985587325205996373, guid: e3ef0a18f3b8f634699fc69105442e32, type: 3}
       propertyPath: m_Sprite
@@ -27,6 +31,10 @@ PrefabInstance:
     - target: {fileID: 8666357435151554099, guid: e3ef0a18f3b8f634699fc69105442e32, type: 3}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8666357435151554099, guid: e3ef0a18f3b8f634699fc69105442e32, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8666357435151554099, guid: e3ef0a18f3b8f634699fc69105442e32, type: 3}
       propertyPath: m_LocalPosition.x

@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 public class FruitHalf : MonoBehaviour
 {
     [SerializeField] private FruitType thisFruit;
+    [SerializeField] private GameObject fullFruit;
 
     [SerializeField] private CircleCollider2D _collider2D;
     private Rigidbody2D _rb2d;
@@ -60,7 +61,12 @@ public class FruitHalf : MonoBehaviour
         if (!isLifted) return;
         
         Destroy(other.gameObject.transform.parent.gameObject);
+
+        //Instantiate new fruit and put it into lifter
+        fullFruit = Instantiate(fullFruit, transform.position, Quaternion.identity);
+        FruitLifter.instance.liftedBody = fullFruit.GetComponent<Rigidbody2D>();
+        FruitLifter.instance.liftedFruit = null;
         
-        Debug.Log("I'm full now!");
+        Destroy(this.gameObject);
     }
 }

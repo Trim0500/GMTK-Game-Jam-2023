@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FruitLifter : MonoBehaviour
 {
@@ -14,9 +15,12 @@ public class FruitLifter : MonoBehaviour
 
     private float _lockoutTimer;
 
+    public static FruitLifter instance;
+    
     private void Start()
     {
         _inputManager = InputManager.instance;
+        instance = this;
     }
 
     void Update()
@@ -37,8 +41,12 @@ public class FruitLifter : MonoBehaviour
             liftedBody = targetObject.transform.gameObject.GetComponent<Rigidbody2D>();
 
             liftedFruit = targetObject.transform.gameObject.GetComponent<FruitHalf>();
-            liftedFruit.isLifted = true;
-            FruitHalf.seekingType = liftedFruit.ThisFruitSeeks();
+
+            if (liftedFruit != null)
+            {
+                liftedFruit.isLifted = true;
+                FruitHalf.seekingType = liftedFruit.ThisFruitSeeks();
+            }
 
             _offset = liftedBody.transform.position - _mousePosition;
         }
