@@ -91,8 +91,8 @@ public class GameManager : MonoBehaviour
 
     private void DisplayGameOver()
     {
-        var inGameMusic = GameObject.FindGameObjectWithTag("In_Game_Music");
-        Destroy(inGameMusic);
+        // var inGameMusic = GameObject.FindGameObjectWithTag("In_Game_Music");
+        // Destroy(inGameMusic);
 
         var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
         Instantiate(failSoundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation,
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
         var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
         Instantiate(beginSoundEffectPrefab, transform.position, Quaternion.identity, objectToInstantiateIn.transform);
 
-        Instantiate(inGameMusicPrefab, transform.position, Quaternion.identity);
+        // Instantiate(inGameMusicPrefab, transform.position, Quaternion.identity);
     }
 
     public void BeginButtonOnClick()
