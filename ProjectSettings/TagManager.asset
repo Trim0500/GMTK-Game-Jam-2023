@@ -12,6 +12,7 @@ TagManager:
   - Tier_Bomb_Spawner
   - Sound_Effect_Group
   - Fuse_Effect
+  - In_Game_Music
   layers:
   - Default
   - TransparentFX

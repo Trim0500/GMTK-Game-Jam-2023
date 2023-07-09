@@ -5492,6 +5492,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1381313331}
     - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+      propertyPath: inGameMusicPrefab
+      value: 
+      objectReference: {fileID: 3863200505885418728, guid: 23c3a451ed9a8ab4fa5a344cdf23ecae, type: 3}
+    - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
       propertyPath: soundEffectPrefab
       value: 
       objectReference: {fileID: 6874080886081978844, guid: 7598711800c12554a9b2ac68f67e6560, type: 3}
