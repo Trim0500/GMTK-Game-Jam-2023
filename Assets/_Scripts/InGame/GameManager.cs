@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverDefaultSelected;
     public GameObject clickSoundEffectPrefab;
     public GameObject selectSoundEffectPrefab;
+    public GameObject beginSoundEffectPrefab;
+    public GameObject failSoundEffectPrefab;
     public Image meterView;
     public List<Sprite> meterSprites;
 
@@ -88,6 +90,9 @@ public class GameManager : MonoBehaviour
 
     private void DisplayGameOver()
     {
+        var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
+        Instantiate(failSoundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation, objectToInstantiateIn.transform);
+
         Time.timeScale = 0f;
 
         gameOverScreen.SetActive(true);
@@ -114,6 +119,12 @@ public class GameManager : MonoBehaviour
     {
         var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
         Instantiate(selectSoundEffectPrefab, transform.position, Quaternion.identity, objectToInstantiateIn.transform);
+    }
+
+    public void CreateBeginEffect()
+    {
+        var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
+        Instantiate(beginSoundEffectPrefab, transform.position, Quaternion.identity, objectToInstantiateIn.transform);
     }
 
     public void BeginButtonOnClick()
