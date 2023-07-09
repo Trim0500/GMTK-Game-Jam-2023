@@ -11,6 +11,7 @@ TagManager:
   - Fruit_Object_Group
   - Tier_Bomb_Spawner
   - Sound_Effect_Group
+  - Fuse_Effect
   layers:
   - Default
   - TransparentFX
