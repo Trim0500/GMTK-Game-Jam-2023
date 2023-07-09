@@ -301,6 +301,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2577414880490775325, guid: c0b9f9000a470484b909381f59f4b2e6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 48c11ee8ee420634ca384333cbfdf1ca, type: 3}
     - target: {fileID: 3600219562955079155, guid: c0b9f9000a470484b909381f59f4b2e6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -343,6 +347,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3600219562955079155, guid: c0b9f9000a470484b909381f59f4b2e6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3642320033442152614, guid: c0b9f9000a470484b909381f59f4b2e6, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3745493414536815601, guid: c0b9f9000a470484b909381f59f4b2e6, type: 3}
