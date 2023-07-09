@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: recoveryValue
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5004627364534072231, guid: 32ee4531e7e643848b494c0757535aa1, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 5397602500520233673, guid: ba4b7de574e54be4e93acb055e891e26, type: 3}
     - target: {fileID: 7985587325205996373, guid: 32ee4531e7e643848b494c0757535aa1, type: 3}
       propertyPath: m_Sprite
       value: 

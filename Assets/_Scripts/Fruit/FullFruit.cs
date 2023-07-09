@@ -7,6 +7,7 @@ public class FullFruit : MonoBehaviour
 {
     public int pointValue = 100;
     public int recoveryValue = 5;
+    public GameObject soundEffectPrefab;
     
     private GameManager gameManager;
     private Collider2D _collider2D;
@@ -54,7 +55,10 @@ public class FullFruit : MonoBehaviour
         gameManager.RecoverMeter(recoveryValue);
 
         isOnConveyor = true;
-        
+
+        var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
+        Instantiate(soundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation, objectToInstantiateIn.transform);
+
         _collider2D.enabled = false;
 
         _rigidbody2D.position = new Vector2(8.5f, transform.position.y);
