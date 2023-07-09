@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8344288448199590766
 SpriteRenderer:
@@ -124,6 +124,8 @@ MonoBehaviour:
   detonationTime: 6
   blastRadius: 6
   blastModif: 3
+  fuseSoundEffectPrefab: {fileID: 2904816135616801243, guid: d1cbd78744324d642887705fdd5b5f92, type: 3}
+  explosionSoundEffectPrefab: {fileID: 2626495508028963671, guid: 53077f63305a62641a41e860847352ce, type: 3}
 --- !u!58 &1093049076579783400
 CircleCollider2D:
   m_ObjectHideFlags: 0

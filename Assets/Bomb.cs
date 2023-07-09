@@ -8,6 +8,8 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float detonationTime = 4.0f;
     [SerializeField] private float blastRadius = 3f;
     [SerializeField] private float blastModif = 1f;
+    [SerializeField] private GameObject fuseSoundEffectPrefab;
+    [SerializeField] private GameObject explosionSoundEffectPrefab;
 
     private Animator _animator;
     private Rigidbody2D _rigidbody2d;
@@ -23,6 +25,9 @@ public class Bomb : MonoBehaviour
         _rigidbody2d = GetComponent<Rigidbody2D>();
         _circleCollider = GetComponent<CircleCollider2D>();
         _gameManager = GameManager.instance;
+
+        var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
+        Instantiate(fuseSoundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation, objectToInstantiateIn.transform);
     }
 
     void Update()
@@ -46,6 +51,11 @@ public class Bomb : MonoBehaviour
     {
         _exploding = true;
         yield return new WaitForSeconds(1.0f);
+
+        Destroy(fuseSoundEffectPrefab);
+
+        var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
+        Instantiate(explosionSoundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation, objectToInstantiateIn.transform);
 
         if (FruitLifter.instance.liftedBody == _rigidbody2d)
             FruitLifter.instance.liftedBody = null;
