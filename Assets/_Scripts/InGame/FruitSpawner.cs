@@ -7,9 +7,10 @@ public class FruitSpawner : MonoBehaviour
 {
     public float spawnerTimer = 2.0f;
     public GameObject itemToCreate;
+    public GameObject soundEffectObject;
     public int maxSpawnCount = 5;
     public float spawnPointOffset = 10.0f;
-    public GameObject spawnSoundEffect;
+    public GameObject soundEffectPrefab;
     public GameManager _gameManager;
     public GameObject leftLimit;
     public GameObject rightLimit;
@@ -62,7 +63,10 @@ public class FruitSpawner : MonoBehaviour
 
             var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Fruit_Object_Group");
 
+            Debug.Log("Attempting to make sound effect object: " + soundEffectPrefab);
+
             Instantiate(itemToCreate, newPosition, itemToCreate.transform.rotation, objectToInstantiateIn.transform);
+            Instantiate(soundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
 
             ++spawnCount;
 

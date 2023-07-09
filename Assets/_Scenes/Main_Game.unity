@@ -832,6 +832,10 @@ PrefabInstance:
       propertyPath: maxSpawnCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5119870882941278131, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 5057413274994165674, guid: 56ecc449505667f4ca4132a63b108f63, type: 3}
     - target: {fileID: 6055893887721275697, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
       propertyPath: m_Name
       value: Dargonfruit_Spawners
@@ -924,6 +928,10 @@ PrefabInstance:
       propertyPath: maxSpawnCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8480169795622535417, guid: 1cb351927aaa1a24898cc54c611a8785, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 5057413274994165674, guid: 56ecc449505667f4ca4132a63b108f63, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4105,6 +4113,14 @@ PrefabInstance:
       propertyPath: maxSpawnCount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3328178508487907597, guid: a429d746900a47740bd2919512c37df3, type: 3}
+      propertyPath: spawnSoundEffect
+      value: 
+      objectReference: {fileID: 4739673222900675557, guid: 622b1a4c08624ee44adbcfe6b9f6bd38, type: 3}
+    - target: {fileID: 3328178508487907597, guid: a429d746900a47740bd2919512c37df3, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 4739673222900675557, guid: 622b1a4c08624ee44adbcfe6b9f6bd38, type: 3}
     - target: {fileID: 3907310370870285920, guid: a429d746900a47740bd2919512c37df3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -4181,6 +4197,14 @@ PrefabInstance:
       propertyPath: maxSpawnCount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6122031398449182037, guid: a429d746900a47740bd2919512c37df3, type: 3}
+      propertyPath: spawnSoundEffect
+      value: 
+      objectReference: {fileID: 4739673222900675557, guid: 622b1a4c08624ee44adbcfe6b9f6bd38, type: 3}
+    - target: {fileID: 6122031398449182037, guid: a429d746900a47740bd2919512c37df3, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 4739673222900675557, guid: 622b1a4c08624ee44adbcfe6b9f6bd38, type: 3}
     - target: {fileID: 6811451637981548013, guid: a429d746900a47740bd2919512c37df3, type: 3}
       propertyPath: m_Name
       value: Apple_Spawners
@@ -4380,6 +4404,10 @@ PrefabInstance:
       propertyPath: maxSpawnCount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1380503021780523391, guid: f61174c12ced2f146874fcc4cf8d305b, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 6361865925799244606, guid: 2fbe5f29e9ac6af4f89d8313f987aa39, type: 3}
     - target: {fileID: 1942465194294745910, guid: f61174c12ced2f146874fcc4cf8d305b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -4464,6 +4492,10 @@ PrefabInstance:
       propertyPath: maxSpawnCount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7506101303928180509, guid: f61174c12ced2f146874fcc4cf8d305b, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 6361865925799244606, guid: 2fbe5f29e9ac6af4f89d8313f987aa39, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4717,6 +4749,10 @@ PrefabInstance:
       propertyPath: maxSpawnCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2814877801469286853, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 2619677458854588319, guid: f70a7de49aa20f149ac1d4d4495df1d0, type: 3}
     - target: {fileID: 4892300803348870815, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: topLimit
       value: 
@@ -4753,6 +4789,10 @@ PrefabInstance:
       propertyPath: maxSpawnCount
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4892300803348870815, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 2619677458854588319, guid: f70a7de49aa20f149ac1d4d4495df1d0, type: 3}
     - target: {fileID: 5088121644984981900, guid: 9359245138034584c92dbbe0d5e41a8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9
@@ -4943,6 +4983,10 @@ PrefabInstance:
       propertyPath: spawnPointOffset
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 540918414449860202, guid: 40921a2b9a791264495a0b8d3c2dd56d, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 6773457241477592495, guid: 38f5b96e5489cab45b5f7fa4f50a168e, type: 3}
     - target: {fileID: 3818910433364828657, guid: 40921a2b9a791264495a0b8d3c2dd56d, type: 3}
       propertyPath: m_RootOrder
       value: 0
