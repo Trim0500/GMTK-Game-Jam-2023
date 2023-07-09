@@ -3725,6 +3725,170 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1078800438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6239255264157506489, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+  m_PrefabInstance: {fileID: 4012274394916865006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1078800443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078800438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateSelectEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateClickEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateSelectEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateClickEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1 &1151779063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1953689685161925914, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+  m_PrefabInstance: {fileID: 4012274394916865006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1151779068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151779063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateSelectEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateClickEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateSelectEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateClickEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1258881839
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,6 +4216,88 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1415965611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7539697862208752038, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+  m_PrefabInstance: {fileID: 4012274394916865006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1415965616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415965611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateSelectEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateClickEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateSelectEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateClickEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1416278603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4650,6 +4896,88 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!1 &1927591417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6864852609335912198, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+  m_PrefabInstance: {fileID: 4012274394916865006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1927591422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927591417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateSelectEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateClickEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateSelectEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 535924558}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: CreateClickEffect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &2012254531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5160,13 +5488,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1381313331}
     - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 6874080886081978844, guid: 7598711800c12554a9b2ac68f67e6560, type: 3}
+    - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
       propertyPath: tierThresholdValue
       value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+      propertyPath: clickSoundEffectPrefab
+      value: 
+      objectReference: {fileID: 270010289876315949, guid: c1b96bc6c0e12c04c8e7651ba74681f6, type: 3}
+    - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+      propertyPath: pauseSoundEffectPrefab
+      value: 
+      objectReference: {fileID: 6874080886081978844, guid: 7598711800c12554a9b2ac68f67e6560, type: 3}
+    - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
       propertyPath: meterSprites.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+      propertyPath: selectSoundEffectPrefab
+      value: 
+      objectReference: {fileID: 8255393431483528387, guid: feeb0b826cf9f764881e7e2e90592a5e, type: 3}
     - target: {fileID: 4752276343688032457, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
       propertyPath: spawnerGroups.Array.size
       value: 4
@@ -5218,7 +5562,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1953689685161925914, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1151779068}
+    - targetCorrespondingSourceObject: {fileID: 6239255264157506489, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1078800443}
+    - targetCorrespondingSourceObject: {fileID: 7539697862208752038, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1415965616}
+    - targetCorrespondingSourceObject: {fileID: 6864852609335912198, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1927591422}
   m_SourcePrefab: {fileID: 100100000, guid: 8982669b0f07d7d45a8e0e8cc2ba4168, type: 3}
 --- !u!1001 &8098952601131648276
 PrefabInstance:

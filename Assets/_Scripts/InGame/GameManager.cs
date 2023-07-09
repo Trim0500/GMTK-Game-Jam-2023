@@ -42,8 +42,11 @@ public class GameManager : MonoBehaviour
     public GameObject timeObject;
     public GameObject pauseScreen;
     public GameObject pauseDefaultSelected;
+    public GameObject pauseSoundEffectPrefab;
     public GameObject gameOverScreen;
     public GameObject gameOverDefaultSelected;
+    public GameObject clickSoundEffectPrefab;
+    public GameObject selectSoundEffectPrefab;
     public Image meterView;
     public List<Sprite> meterSprites;
 
@@ -67,6 +70,9 @@ public class GameManager : MonoBehaviour
 
             pauseScreen.SetActive(false);
         }
+
+        var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
+        Instantiate(pauseSoundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation, objectToInstantiateIn.transform);
     }
 
     private void CheckPause()
@@ -96,6 +102,18 @@ public class GameManager : MonoBehaviour
         SetInitialMeterView();
 
         InvokeRepeating("DrainMeter", 0.0f, 1.0f);
+    }
+
+    public void CreateClickEffect()
+    {
+        var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
+        Instantiate(clickSoundEffectPrefab, transform.position, Quaternion.identity, objectToInstantiateIn.transform);
+    }
+
+    public void CreateSelectEffect()
+    {
+        var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
+        Instantiate(selectSoundEffectPrefab, transform.position, Quaternion.identity, objectToInstantiateIn.transform);
     }
 
     public void BeginButtonOnClick()
