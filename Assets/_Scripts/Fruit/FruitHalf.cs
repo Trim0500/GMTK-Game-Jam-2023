@@ -6,6 +6,7 @@ public class FruitHalf : MonoBehaviour
 {
     [SerializeField] private FruitType thisFruit;
     [SerializeField] private GameObject fullFruit;
+    [SerializeField] private GameObject soundEffectPrefab;
 
     [SerializeField] private CircleCollider2D _collider2D;
     private Rigidbody2D _rb2d;
@@ -75,6 +76,9 @@ public class FruitHalf : MonoBehaviour
         FruitLifter.instance.liftedBody = fullFruit.GetComponent<Rigidbody2D>();
         FruitLifter.instance.liftedFruit = null;
         
+        var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
+        Instantiate(soundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation, objectToInstantiateIn.transform);
+
         Destroy(this.gameObject);
     }
 }

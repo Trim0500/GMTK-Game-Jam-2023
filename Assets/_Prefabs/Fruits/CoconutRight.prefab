@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: thisFruit
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7605450378003979232, guid: e3ef0a18f3b8f634699fc69105442e32, type: 3}
+      propertyPath: soundEffectPrefab
+      value: 
+      objectReference: {fileID: 5870441219685626249, guid: 329dff7a71bf9d84ca3347c89cebc5ee, type: 3}
     - target: {fileID: 7985587325205996373, guid: e3ef0a18f3b8f634699fc69105442e32, type: 3}
       propertyPath: m_Sprite
       value: 

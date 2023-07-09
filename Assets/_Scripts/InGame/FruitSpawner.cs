@@ -7,7 +7,6 @@ public class FruitSpawner : MonoBehaviour
 {
     public float spawnerTimer = 2.0f;
     public GameObject itemToCreate;
-    public GameObject soundEffectObject;
     public int maxSpawnCount = 5;
     public float spawnPointOffset = 10.0f;
     public GameObject soundEffectPrefab;
