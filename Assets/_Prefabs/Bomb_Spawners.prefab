@@ -45,10 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerTimer: 5
-  itemToCreate: {fileID: 2699751177440955136, guid: 0078b8b60537e9240a3fc5f7f3acb61b, type: 3}
+  leftItemToCreate: {fileID: 0}
+  rightItemToCreate: {fileID: 0}
   maxSpawnCount: 3
   spawnPointOffset: 2
-  spawnSoundEffect: {fileID: 0}
+  soundEffectPrefab: {fileID: 0}
   _gameManager: {fileID: 0}
   leftLimit: {fileID: 0}
   rightLimit: {fileID: 0}
@@ -64,6 +65,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3818910433364828657}
+  - component: {fileID: 8550379052225171738}
   m_Layer: 0
   m_Name: Bomb_Spawners
   m_TagString: Tier_Bomb_Spawner
@@ -87,3 +89,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8550379052225171738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757158041080468019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da62d5f30d98d0448efc7dbb36e46c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnerTimer: 7
+  itemToCreate: {fileID: 2699751177440955136, guid: 0078b8b60537e9240a3fc5f7f3acb61b, type: 3}
+  maxSpawnCount: 2
+  spawnPointOffset: 3
+  soundEffectPrefab: {fileID: 6773457241477592495, guid: 38f5b96e5489cab45b5f7fa4f50a168e, type: 3}
+  _gameManager: {fileID: 0}
+  leftLimit: {fileID: 0}
+  rightLimit: {fileID: 0}
+  topLimit: {fileID: 0}
+  bottomLimit: {fileID: 0}
+  cooldownTimer: 10

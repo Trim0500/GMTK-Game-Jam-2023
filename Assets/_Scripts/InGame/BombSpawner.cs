@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class FruitSpawner : MonoBehaviour
+public class BombSpawner : MonoBehaviour
 {
     public float spawnerTimer = 2.0f;
-    public GameObject leftItemToCreate;
-    public GameObject rightItemToCreate;
+    public GameObject itemToCreate;
     public int maxSpawnCount = 5;
     public float spawnPointOffset = 10.0f;
     public GameObject soundEffectPrefab;
@@ -49,40 +48,28 @@ public class FruitSpawner : MonoBehaviour
             var spawnerPositions = this.GetComponentsInChildren<Transform>();
 
             var newOffset = spawnPointOffset + randInt;
-            var newLeftItemPosition = new Vector2(spawnerPositions[0].position.x + newOffset, spawnerPositions[0].position.y + newOffset);
-            var newRightItemPosition = new Vector2(spawnerPositions[1].position.x + newOffset, spawnerPositions[1].position.y + newOffset);
+            var newItemPosition = new Vector2(spawnerPositions[0].position.x + newOffset, spawnerPositions[0].position.y + newOffset);
 
-            if(newLeftItemPosition.x < leftLimit.transform.position.x + 0.5f || newLeftItemPosition.x > rightLimit.transform.position.x - 0.5f)
+            if(newItemPosition.x < leftLimit.transform.position.x + 0.5f || newItemPosition.x > rightLimit.transform.position.x - 0.5f)
             {
-                newLeftItemPosition.x = spawnerPositions[0].position.x;
+                newItemPosition.x = spawnerPositions[0].position.x;
             }
 
-            if(newLeftItemPosition.y < topLimit.transform.position.y - 0.5f || newLeftItemPosition.y > bottomLimit.transform.position.y + 0.5f)
+            if(newItemPosition.y < topLimit.transform.position.y - 0.5f || newItemPosition.y > bottomLimit.transform.position.y + 0.5f)
             {
-                newLeftItemPosition.y = spawnerPositions[0].position.y;
-            }
-
-            if (newRightItemPosition.x < leftLimit.transform.position.x + 0.5f || newRightItemPosition.x > rightLimit.transform.position.x - 0.5f)
-            {
-                newRightItemPosition.x = spawnerPositions[1].position.x;
-            }
-
-            if (newRightItemPosition.y < topLimit.transform.position.y - 0.5f || newRightItemPosition.y > bottomLimit.transform.position.y + 0.5f)
-            {
-                newRightItemPosition.y = spawnerPositions[1].position.y;
+                newItemPosition.y = spawnerPositions[0].position.y;
             }
 
             var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Fruit_Object_Group");
 
             Debug.Log("Attempting to make sound effect object: " + soundEffectPrefab);
 
-            Instantiate(leftItemToCreate, newLeftItemPosition, leftItemToCreate.transform.rotation, objectToInstantiateIn.transform);
-            Instantiate(rightItemToCreate, newRightItemPosition, rightItemToCreate.transform.rotation, objectToInstantiateIn.transform);
+            Instantiate(itemToCreate, newItemPosition, itemToCreate.transform.rotation, objectToInstantiateIn.transform);
             Instantiate(soundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
 
             ++spawnCount;
 
-            _gameManager.IncreasesCurrentItemCount(2);
+            _gameManager.IncreasesCurrentItemCount(1);
         }
         else if(!cooldown && spawnCount == maxSpawnCount)
         {

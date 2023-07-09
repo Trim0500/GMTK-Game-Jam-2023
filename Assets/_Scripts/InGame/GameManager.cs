@@ -246,9 +246,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void IncreasesCurrentItemCount()
+    public void IncreasesCurrentItemCount(int countValue)
     {
-        ++currentPieces;
+        currentPieces += countValue;
     }
 
     public void DecreaseCurrentItemCount(int countValue)
@@ -283,13 +283,10 @@ public class GameManager : MonoBehaviour
                 var otherSpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner")).ToList();
                 for (int i = 0; i < otherSpawnerGroups.Count; i++)
                 {
-                    var spawnerChildren = otherSpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
-                    for (int j = 0; j < spawnerChildren.Length; j++)
-                    {
-                        spawnerChildren[j].spawnerTimer = 3.0f;
-                        spawnerChildren[j].maxSpawnCount = 4;
-                        spawnerChildren[j].cooldownTimer = 5.0f;
-                    }
+                    var spawnerScriptComponent = otherSpawnerGroups[i].GetComponent<FruitSpawner>();
+                    spawnerScriptComponent.spawnerTimer = 3.0f;
+                    spawnerScriptComponent.maxSpawnCount = 4;
+                    spawnerScriptComponent.cooldownTimer = 5.0f;
                 }
 
                 break;
@@ -310,13 +307,10 @@ public class GameManager : MonoBehaviour
                 tier1And2SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner")).ToList());
                 for (int i = 0; i < tier1And2SpawnerGroups.Count; i++)
                 {
-                    var spawnerChildren = tier1And2SpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
-                    for (int j = 0; j < spawnerChildren.Length; j++)
-                    {
-                        spawnerChildren[j].spawnerTimer = 2.25f;
-                        spawnerChildren[j].maxSpawnCount = 4;
-                        spawnerChildren[j].cooldownTimer = 4.0f;
-                    }
+                    var spawnerScriptComponent = tier1And2SpawnerGroups[i].GetComponent<FruitSpawner>();
+                    spawnerScriptComponent.spawnerTimer = 2.25f;
+                    spawnerScriptComponent.maxSpawnCount = 4;
+                    spawnerScriptComponent.cooldownTimer = 4.0f;
                 }
 
                 break;
@@ -329,13 +323,10 @@ public class GameManager : MonoBehaviour
                 tier1And2And3SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner")).ToList());
                 for (int i = 0; i < spawnerGroups.Count; i++)
                 {
-                    var spawnerChildren = tier1And2And3SpawnerGroups[i].GetComponentsInChildren<FruitSpawner>();
-                    for (int j = 0; j < spawnerChildren.Length; j++)
-                    {
-                        spawnerChildren[j].spawnerTimer = 1.75f;
-                        spawnerChildren[j].maxSpawnCount = 9;
-                        spawnerChildren[j].cooldownTimer = 4.0f;
-                    }
+                    var spawnerScriptComponent = tier1And2And3SpawnerGroups[i].GetComponent<FruitSpawner>();
+                    spawnerScriptComponent.spawnerTimer = 1.75f;
+                    spawnerScriptComponent.maxSpawnCount = 9;
+                    spawnerScriptComponent.cooldownTimer = 7.0f;
                 }
 
                 break;
