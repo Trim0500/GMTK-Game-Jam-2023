@@ -99,6 +99,8 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0f;
 
+        meterObject.SetActive(false);
+
         gameOverScreen.SetActive(true);
 
         eventSystem.SetSelectedGameObject(gameOverDefaultSelected);
