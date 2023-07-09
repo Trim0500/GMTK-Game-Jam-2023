@@ -14,8 +14,8 @@ public class MainMenu : MonoBehaviour
     public GameObject creditsDefaultSelected;
     public EventSystem eventSystem;
     public GameObject backEffect;
-    public GameObject clickEffect;
-    public GameObject navigationEffect;
+    public GameObject clickSoundEffectPrefab;
+    public GameObject navigationSoundEffectPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -96,9 +96,9 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Creating effect...");
 
-        if (clickEffect)
+        if (clickSoundEffectPrefab)
         {
-            Instantiate(clickEffect, transform.position, Quaternion.identity, null);
+            Instantiate(clickSoundEffectPrefab, transform.position, Quaternion.identity, null);
         }
     }
 
@@ -114,9 +114,9 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Creating effect...");
 
-        if (navigationEffect)
+        if (navigationSoundEffectPrefab)
         {
-            Instantiate(navigationEffect, transform.position, Quaternion.identity, null);
+            Instantiate(navigationSoundEffectPrefab, transform.position, Quaternion.identity, null);
         }
     }
 }
