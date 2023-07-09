@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private Animator transitionAnimator;
+    
     public GameObject mainMenu;
     public GameObject controlsMenu;
     public GameObject creditsMenu;
@@ -31,9 +33,16 @@ public class MainMenu : MonoBehaviour
 
     public void PlayButtonOnClick()
     {
-        SceneManager.LoadScene("Main_Game");
+        StartCoroutine(StartCoro());
     }
 
+    private IEnumerator StartCoro()
+    {
+        transitionAnimator.Play("slide_end");
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadScene("Main_Game");
+    }
+    
     public void ControlsButtonOnClick()
     {
         mainMenu.SetActive(false);

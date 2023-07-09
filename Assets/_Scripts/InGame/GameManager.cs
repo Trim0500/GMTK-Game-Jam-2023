@@ -10,24 +10,23 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private Animator transitionAnimator;
+    
     private bool paused = false;
     private bool gameOver = false;
     private int score = 0;
     private float secondsElapsed;
     private int minutesCounter;
-    [SerializeField]
-    private int remainingMeter = 60;
-    [SerializeField]
-    private int meterDrainRate = 1;
+    [SerializeField] private int remainingMeter = 60;
+    [SerializeField] private int meterDrainRate = 1;
     private int MAX_METER = 100;
     private int currentPieces = 0;
-    [SerializeField]
-    private int maxPieces = 26;
-    [SerializeField]
-    private int tierThresholdValue = 10000;
+    [SerializeField] private int maxPieces = 26;
+    [SerializeField] private int tierThresholdValue = 10000;
     private int currentTier = 1;
 
     public InputManager _inputManager;
@@ -75,13 +74,14 @@ public class GameManager : MonoBehaviour
         }
 
         var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
-        Instantiate(pauseSoundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation, objectToInstantiateIn.transform);
+        Instantiate(pauseSoundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation,
+            objectToInstantiateIn.transform);
     }
 
     private void CheckPause()
     {
         var pauseButtonValue = _inputManager.pauseButton;
-        if(pauseButtonValue == 1.0f)
+        if (pauseButtonValue == 1.0f)
         {
             Pause();
 
@@ -95,7 +95,8 @@ public class GameManager : MonoBehaviour
         Destroy(inGameMusic);
 
         var objectToInstantiateIn = GameObject.FindGameObjectWithTag("Sound_Effect_Group");
-        Instantiate(failSoundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation, objectToInstantiateIn.transform);
+        Instantiate(failSoundEffectPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation,
+            objectToInstantiateIn.transform);
 
         Time.timeScale = 0f;
 
@@ -167,6 +168,13 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1.0f;
 
+        StartCoroutine(RestartCoro());
+    }
+
+    private IEnumerator RestartCoro()
+    {
+        transitionAnimator.Play("slide_end");
+        yield return new WaitForSeconds(0.9f);
         SceneManager.LoadScene("Main_Game");
     }
 
@@ -176,6 +184,13 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 1.0f;
 
+        StartCoroutine(QuitCoro());
+    }
+
+    private IEnumerator QuitCoro()
+    {
+        transitionAnimator.Play("slide_end");
+        yield return new WaitForSeconds(1.1f);
         SceneManager.LoadScene("Title_Screen");
     }
 
@@ -184,7 +199,7 @@ public class GameManager : MonoBehaviour
         var currentTime = secondsElapsed;
         var newTime = currentTime + Time.deltaTime;
         secondsElapsed = newTime;
-        if(secondsElapsed >= 60.0f)
+        if (secondsElapsed >= 60.0f)
         {
             ++minutesCounter;
 
@@ -192,18 +207,18 @@ public class GameManager : MonoBehaviour
         }
 
         var secondsDisplay = "0";
-        if(secondsElapsed < 10.0f)
+        if (secondsElapsed < 10.0f)
         {
-            secondsDisplay = "0" + (int)secondsElapsed;
+            secondsDisplay = "0" + (int) secondsElapsed;
         }
         else
         {
-            var intSeconds = (int)secondsElapsed;
+            var intSeconds = (int) secondsElapsed;
             secondsDisplay = intSeconds.ToString();
         }
 
         var minuteDisplay = "0";
-        if(minutesCounter < 10)
+        if (minutesCounter < 10)
         {
             minuteDisplay = "0" + minutesCounter.ToString();
         }
@@ -232,7 +247,7 @@ public class GameManager : MonoBehaviour
         UnityEngine.Debug.Log("Score was: " + score);
 
         score += scoreValue;
-        
+
         UnityEngine.Debug.Log("Score is now: " + score);
 
         UpdateScoreText();
@@ -303,8 +318,10 @@ public class GameManager : MonoBehaviour
                     tier3SpawnerGroups[i].SetActive(true);
                 }
 
-                var tier1And2SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner")).ToList();
-                tier1And2SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner")).ToList());
+                var tier1And2SpawnerGroups =
+                    spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner")).ToList();
+                tier1And2SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner"))
+                    .ToList());
                 for (int i = 0; i < tier1And2SpawnerGroups.Count; i++)
                 {
                     var spawnerScriptComponent = tier1And2SpawnerGroups[i].GetComponent<FruitSpawner>();
@@ -319,8 +336,10 @@ public class GameManager : MonoBehaviour
 
                 meterDrainRate = 4;
 
-                var tier1And2And3SpawnerGroups = spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner")).ToList();
-                tier1And2And3SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner")).ToList());
+                var tier1And2And3SpawnerGroups =
+                    spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_1_Spawner")).ToList();
+                tier1And2And3SpawnerGroups.AddRange(spawnerGroups.Where(spawner => spawner.tag.Equals("Tier_2_Spawner"))
+                    .ToList());
                 for (int i = 0; i < spawnerGroups.Count; i++)
                 {
                     var spawnerScriptComponent = tier1And2And3SpawnerGroups[i].GetComponent<FruitSpawner>();
@@ -346,7 +365,7 @@ public class GameManager : MonoBehaviour
 
         UpdateMeterView();
 
-        if(remainingMeter <= 0)
+        if (remainingMeter <= 0)
         {
             gameOver = true;
 
@@ -362,19 +381,19 @@ public class GameManager : MonoBehaviour
 
             meterView.sprite = meterSprites[0];
         }
-        else if(remainingMeter > 50 && remainingMeter <= 75)
+        else if (remainingMeter > 50 && remainingMeter <= 75)
         {
             UnityEngine.Debug.Log("Meter is yellow now");
 
             meterView.sprite = meterSprites[1];
         }
-        else if(remainingMeter > 25 && remainingMeter <= 50)
+        else if (remainingMeter > 25 && remainingMeter <= 50)
         {
             UnityEngine.Debug.Log("Meter is orange now");
 
             meterView.sprite = meterSprites[2];
         }
-        else if(remainingMeter > 0 && remainingMeter <= 25)
+        else if (remainingMeter > 0 && remainingMeter <= 25)
         {
             UnityEngine.Debug.Log("Meter is red now");
 
@@ -437,7 +456,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateElapsedTime();
-        
+
         CheckPause();
     }
 }
