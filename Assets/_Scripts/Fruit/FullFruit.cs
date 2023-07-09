@@ -38,7 +38,7 @@ public class FullFruit : MonoBehaviour
         {
             Destroy(gameObject); //TODO POOLING?
 
-            gameManager.DecreaseCurrentItemCount(2);
+            gameManager.DecreaseCurrentItemCount(1);
         }
     }
 

@@ -7,6 +7,7 @@ public class FruitHalf : MonoBehaviour
     [SerializeField] private FruitType thisFruit;
     [SerializeField] private GameObject fullFruit;
     [SerializeField] private GameObject soundEffectPrefab;
+    [SerializeField] private GameManager gameManager;
 
     [SerializeField] private CircleCollider2D _collider2D;
     private Rigidbody2D _rb2d;
@@ -50,6 +51,8 @@ public class FruitHalf : MonoBehaviour
         // _collider2D = GetComponentInChildren<CircleCollider2D>();
         
         _rb2d.velocity = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+
+        gameManager = GameManager.instance;
     }
 
     private void Update()
@@ -70,6 +73,8 @@ public class FruitHalf : MonoBehaviour
         if (!isLifted) return;
         
         Destroy(other.gameObject.transform.parent.gameObject);
+
+        gameManager.DecreaseCurrentItemCount(1);
 
         //Instantiate new fruit and put it into lifter
         fullFruit = Instantiate(fullFruit, transform.position, Quaternion.identity);

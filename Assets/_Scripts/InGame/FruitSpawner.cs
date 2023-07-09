@@ -50,12 +50,12 @@ public class FruitSpawner : MonoBehaviour
             var newOffset = spawnPointOffset + randInt;
             var newPosition = new Vector2(spawnerPosition.x + newOffset, spawnerPosition.y + newOffset);
 
-            if(newPosition.x < leftLimit.transform.position.x || newPosition.y > rightLimit.transform.position.x)
+            if(newPosition.x < leftLimit.transform.position.x + 0.5f || newPosition.x > rightLimit.transform.position.x - 0.5f)
             {
                 newPosition.x = this.gameObject.transform.position.x;
             }
 
-            if(newPosition.y < leftLimit.transform.position.y || newPosition.y > rightLimit.transform.position.y)
+            if(newPosition.y < topLimit.transform.position.y - 0.5f || newPosition.y > bottomLimit.transform.position.y + 0.5f)
             {
                 newPosition.y = this.gameObject.transform.position.y;
             }

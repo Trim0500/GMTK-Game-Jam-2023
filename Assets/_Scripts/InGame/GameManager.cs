@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private int MAX_METER = 100;
     private int currentPieces = 0;
     [SerializeField]
-    private int maxPieces = 50;
+    private int maxPieces = 26;
     [SerializeField]
     private int tierThresholdValue = 10000;
     private int currentTier = 1;
@@ -250,6 +250,8 @@ public class GameManager : MonoBehaviour
 
     public bool CheckForMaxPieces()
     {
+        UnityEngine.Debug.Log("Current pieces is: " + currentPieces + " and max pieces are: " + maxPieces);
+
         return currentPieces < maxPieces;
     }
 
